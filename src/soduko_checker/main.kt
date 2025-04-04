@@ -10,19 +10,19 @@ fun main(){
  */
 fun isValidSoduko(board:List<List<Any>>):Boolean{
 
-    if(board.all { row -> row.all { it == '-' } }) return false
-
-    if(! board.all{it.size == board.size}) return false
 
     if(board.isEmpty())
         return false
     else{
+        if(board.all { row -> row.all { it == '-' } }) return false
+
+        if(! board.all{it.size == board.size}) return false
+
         val colSeen = mutableSetOf<Char>()
 
         for (row in board.indices){
                 val seen = mutableSetOf<Char>()
                 board[row].forEach{ item ->
-                    //println(board.map {it[row]})
                     when{
                         item !is Char -> return false
                         item == ' ' -> return false
