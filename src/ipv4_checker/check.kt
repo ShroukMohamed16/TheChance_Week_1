@@ -1,7 +1,7 @@
 package ipv4_checker
 
 fun main(){
-
+    isValidIpv4("192.168.1.1")
     test(
         name = "when input is correct and  met all constraints return true",
         result = isValidIpv4("192.168.1.1"),
