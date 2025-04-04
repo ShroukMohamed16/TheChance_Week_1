@@ -4,8 +4,10 @@ fun main(){
 
 }
 /**
- * @param input
- * @return input
+ * check whether a given input is a valid ipv4 address.
+ *
+ * @param input The value to check. Can be any type.
+ * @return true if the input is a valid IPv4 address, otherwise false.
  */
 fun isValidIpv4(input:Any):Boolean{
     if (input is String){
@@ -17,7 +19,7 @@ fun isValidIpv4(input:Any):Boolean{
             return false
         for (segment in parts) {
             when{
-                segment.isEmpty() -> return false
+                segment.isEmpty() || segment.isBlank() -> return false
                 segment.length > 1 && segment.startsWith("0") -> return false
                 segment.toIntOrNull() == null -> return false
                 segment.toIntOrNull() !in 0..255 -> return false
